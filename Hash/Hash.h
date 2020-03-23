@@ -3,13 +3,15 @@
 
 #include<stdio.h>
 #include<stdlib.h>
-
-
+struct Lista {
+	int dato[1000]; 
+	struct Lista *sig;
+};
 struct Tabla {
 	int elem;
-	int arre[1000];
-	struct Tabla * sig;
+	struct Lista *arre;
 }; 
+
 struct Tabla * crear(void); 
 int hasheo (int);
 struct Tabla * insertar (struct Tabla *, int ,int); 

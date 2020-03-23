@@ -4,12 +4,12 @@
 #include<stdio.h>
 #include<stdlib.h>
 struct Lista {
-	int dato[1000]; 
-	struct Lista *sig;
+	int dato; 
+	struct Lista *siguiente;
 };
 struct Tabla {
-	int elem;
-	struct Lista *arre;
+	int numero_de_elmentos;
+	struct Lista *listas[100];
 }; 
 
 struct Tabla * crear(void); 

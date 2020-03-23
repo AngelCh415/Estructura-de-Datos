@@ -1,15 +1,11 @@
 #include "Hash.h"
 
-struct Tabla * crear(){
-	struct Tabla *tabla =NULL;
-	int i;
-	tabla = (struct Tabla *) malloc (sizeof(struct Tabla));
-	for(i=0; i<1000; i++){
-		tabla->arre[i] = -1;
-	}
-	tabla -> elem =0;
-	tabla ->sig = NULL;
-	return tabla;
+struct Tabla * crear(struct Tabla *Hash){
+	int i; 
+	for(i=0; i<1000;i++) Hash->arre[i] = NULL; 
+	Hash-> elem = 0; 
+	Hash-> arre -> sig = NULL; 
+	return Hash; 
 }
 
 int hasheo (int dato){
@@ -17,11 +13,16 @@ int hasheo (int dato){
 	indice = dato %1000; 
 	return indice;
 }
-
-struct Tabla *  insertar (struct Tabla *tabla, int indice, int dato){
-	struct Tabla *aux= crear ();	
-	aux->arre[indice] = dato;
-	aux->sig = tabla;	
+/*struct Tabla * Insercion (int pos, int dato){
+	struct Lista *lista[1000]; 
+	struct Tabla *nueva = crear(); 
+	nueva->[lista[pos]] = dato;
+}*/
+struct Tabla *  insertar (struct Tabla *tabla,  int dato){
+	int indice = hasheo(dato);
+	struct Tabla *aux= crear (aux); 
+	aux->arre[indice] = dato; 
+	aux->arre->sig = tabla;
         return aux;	
 
 }

@@ -1,7 +1,12 @@
 #include "Hash.h"
 
-struct Tabla * crear(struct Tabla *Hash){
-	int i; 
+struct Tabla * crear(void){
+	int i;
+        struct Tabla *Hash = NULL;
+        Hash = (struct Tabla *) malloc(sizeof(struct Tabla));
+        if(Hash == NULL) {
+	   return NULL;
+  	}
 	for(i=0; i<1000;i++) Hash->listas[i] = NULL; 
 	Hash-> numero_de_elementos= 0; 
 	Hash-> listas -> siguiente = NULL; 

@@ -7,9 +7,10 @@ struct Tabla * crear(void){
         if(Hash == NULL) {
 	   return NULL;
   	}
-	for(i=0; i<1000;i++) Hash->listas[i] = NULL; 
+	for(i=0; i<1000;i++) {
+              Hash->listas[i] = NULL; 
+        }
 	Hash-> numero_de_elementos= 0; 
-	Hash-> listas -> siguiente = NULL; 
 	return Hash; 
 }
 

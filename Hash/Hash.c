@@ -2,9 +2,9 @@
 
 struct Tabla * crear(struct Tabla *Hash){
 	int i; 
-	for(i=0; i<1000;i++) Hash->arre[i] = NULL; 
-	Hash-> elem = 0; 
-	Hash-> arre -> sig = NULL; 
+	for(i=0; i<1000;i++) Hash->listas[i] = NULL; 
+	Hash-> numero_de_elementos= 0; 
+	Hash-> listas -> siguiente = NULL; 
 	return Hash; 
 }
 
@@ -21,14 +21,14 @@ int hasheo (int dato){
 struct Tabla *  insertar (struct Tabla *tabla,  int dato){
 	int indice = hasheo(dato);
 	struct Tabla *aux= crear (aux); 
-	aux->arre[indice] = dato; 
-	aux->arre->sig = tabla;
+	aux->listas[indice] = dato; 
+	aux->listas[indice]->siguiente = tabla;
         return aux;	
 
 }
 void buscar (struct Tabla *tabla, int indice){
-	if(tabla->arre[indice] == -1) printf ("No se encontro");
+	if(tabla->listas[indice] == -1) printf ("No se encontro");
 	else{
-		printf ("El elemento se guardo en la posicion %d y es %d", indice, tabla->arre[indice]);
+		printf ("El elemento se guardo en la posicion %d y es %d", indice, tabla->listas[indice]);
 	}
 }

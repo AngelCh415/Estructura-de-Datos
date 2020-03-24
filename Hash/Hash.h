@@ -9,7 +9,7 @@ struct Lista {
 };
 struct Tabla {
 	int numero_de_elmentos;
-	struct Lista *listas[100];
+	struct Lista *listas[1000];
 }; 
 
 struct Tabla * crear(void); 

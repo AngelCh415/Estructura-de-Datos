@@ -3,11 +3,11 @@
 
 #include<stdio.h>
 #include<stdlib.h>
-
+#include "Lista.h"
 struct Pila
 {
   int dato;
-  struct Pila *siguiente;
+  struct Lista *siguiente;
 };
 
 struct Pila *crear (int);

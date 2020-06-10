@@ -23,6 +23,15 @@ insertar (struct Lista *lista, int dato)
   return lista;
 }
 
+struct Lista *
+eliminar (struct Lista *lista)
+{
+  struct Lista *aux = lista->siguiente;
+  free (lista);
+  lista = aux;
+  return lista;
+}
+
 void
 mostrar (struct Lista *lista)
 {

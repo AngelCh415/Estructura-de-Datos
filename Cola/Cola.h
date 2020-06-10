@@ -5,7 +5,7 @@
 #include <stdlib.h>
 
 int cola[100];
-void push(int *, int, int *);
-void pop(int *, int *, int);
+void push (int *, int, int *);
+void pop (int *, int *, int);
 
 #endif

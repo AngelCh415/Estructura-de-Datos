@@ -15,6 +15,7 @@ main (void)
       scanf ("%d", &dato);
       push (cola, dato, &tope);
     }
+  printf("Eliminadno y mostrando la cola: \n");
   for (int i = 0; i < n; i++)
     {
       pop (cola, &ini, tope);

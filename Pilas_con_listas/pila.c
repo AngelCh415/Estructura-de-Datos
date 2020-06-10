@@ -13,17 +13,16 @@ struct Pila *
 insertar (struct Pila *pila, int dato)
 {
   struct Pila *nueva = crear (dato);
-  nueva->siguiente = pila;
+  nueva->siguiente = pila->siguiente;
   return nueva;
 }
 
 struct Pila *
 eliminar (struct Pila *pila)
 {
-  struct Pila *aux = pila->siguiente;
+  struct Lista *aux = pila->siguiente;
   free (pila);
-  pila = aux;
-  return pila;
+  return aux;
 }
 
 void

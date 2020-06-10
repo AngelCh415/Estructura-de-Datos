@@ -12,6 +12,7 @@ struct Lista
 
 struct Lista *crear (int);
 struct Lista *insertar (struct Lista *, int);
+struct Lista *eliminar (struct Lista *);
 void mostrar (struct Lista *);
 
 #endif

@@ -19,5 +19,14 @@ main ()
     }
   printf ("Los datos mostrados son: ");
   mostrar (lista);
+  printf ("\n");
+  printf ("Eliminación de la mitad de los datos:\n");
+  total = total / 2;
+  for (i = 0; i < total; i++)
+    {
+      lista = eliminar (lista);
+    }
+  printf ("Los datos después de la eliminación: \n");
+  mostrar (lista);
   return 0;
 }

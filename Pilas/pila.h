@@ -5,7 +5,7 @@
 #include<stdlib.h>
 
 int pila[100];
-void insertar ( int* , int, int*);
-void mostrar_eliminar (int*, int*);
+void insertar (int *, int, int *);
+void mostrar_eliminar (int *, int *);
 
 #endif

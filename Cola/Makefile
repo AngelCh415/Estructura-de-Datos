@@ -1,11 +1,11 @@
 cola.o: cola.c
-	gcc cola.c -c
+	gcc cola.c -c -Wall
 
 main.o: main.c
-	gcc main.c -c
+	gcc main.c -c -Wall
 
 a.out: main.o cola.o
-	gcc main.o cola.o
+	gcc main.o cola.o -Wall
 
 run: a.out
 	./a.out

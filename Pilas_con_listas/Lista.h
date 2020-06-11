@@ -13,6 +13,6 @@ struct Lista
 struct Lista *crear (int);
 struct Lista *insertar_lista (struct Lista *, int);
 struct Lista *eliminar_lista (struct Lista *);
-void mostrar (struct Lista *);
+void mostrar_Lista (struct Lista *);
 
 #endif

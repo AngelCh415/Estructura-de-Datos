@@ -33,7 +33,7 @@ eliminar_lista (struct Lista *lista)
 }
 
 void
-mostrar (struct Lista *lista)
+mostrar_Lista (struct Lista *lista)
 {
   while (lista != NULL)
     {

@@ -11,7 +11,7 @@ crear_pila (int dato)
 struct Pila *
 insertar (struct Pila *pila, int dato)
 {
-  struct Pila *nueva = crear (dato);
+  struct Pila *nueva = crear_pila(dato);
   nueva->lista = pila->lista;
   return nueva;
 }
@@ -27,7 +27,7 @@ void
 mostrar_pila (struct Pila *pila)
 {
   struct Pila *aux = NULL;
-  aux = crear (-123);
+  aux = crear_pila(-123);
   /*while (pila != NULL)
     {
       printf ("%d ", pila->lista->dato);
@@ -44,7 +44,7 @@ mostrar_pila (struct Pila *pila)
 	  pila->lista->dato = aux->lista->dato;
 	  pila->lista = aux->lista;
 	}
-      aux = aux->lista;
+     // aux = aux->lista;
     }
   free (aux);
 }

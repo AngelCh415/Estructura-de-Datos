@@ -5,10 +5,10 @@ crear (int dato)
 {
   struct Lista *nueva = NULL;
   nueva = (struct Lista *) malloc (sizeof (struct Lista));
-  if (nueva == NULL)
+  /*if (nueva == NULL)
     {
       return NULL;
-    }
+    }*/
   nueva->dato = dato;
   nueva->siguiente = NULL;
   return nueva;
@@ -26,6 +26,9 @@ insertar_lista (struct Lista *lista, int dato)
 struct Lista *
 eliminar_lista (struct Lista *lista)
 {
+  if(lista== NULL){
+    return NULL;
+  }
   struct Lista *aux = lista->siguiente;
   free (lista);
   lista = aux;
@@ -33,7 +36,7 @@ eliminar_lista (struct Lista *lista)
 }
 
 void
-mostrar_Lista (struct Lista *lista)
+mostrar_lista (struct Lista *lista)
 {
   while (lista != NULL)
     {

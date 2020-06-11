@@ -10,8 +10,8 @@ struct Pila
 };
 
 struct Pila *crear_pila (int);
-struct Pila *insertar (struct Pila *, int);
+struct Pila *insertar_pila (struct Pila *, int);
 struct Pila *eliminar (struct Pila *);
-void mostrar_pila (struct Pila *);
+struct Pila *mostrar_pila (struct Pila *);
 
 #endif

@@ -9,7 +9,7 @@ crear_pila (int dato)
   return pila;
 }
 struct Pila *
-insertar (struct Pila *pila, int dato)
+insertar_pila (struct Pila *pila, int dato)
 {
   struct Pila *nueva = crear_pila(dato);
   nueva->lista = pila->lista;
@@ -19,32 +19,21 @@ insertar (struct Pila *pila, int dato)
 struct Pila *
 eliminar (struct Pila *pila)
 { 
- pila->lista= eliminar_lista(pila->lista);
+  pila->lista= eliminar_lista(pila->lista);
   return pila;
 }
 
-void
+struct Pila *
 mostrar_pila (struct Pila *pila)
 {
   struct Pila *aux = NULL;
-  aux = crear_pila(-123);
-  /*while (pila != NULL)
-    {
-      printf ("%d ", pila->lista->dato);
-      aux->lista->dato = pila->lista->dato;
-      aux->lista = pila->lista;
-      pila = pila->lista;
-    }*/
-  mostrar(pila->lista);
-  free (pila);
-  while (aux != NULL)
-    {
-      if (aux->lista != NULL)
-	{
-	  pila->lista->dato = aux->lista->dato;
-	  pila->lista = aux->lista;
-	}
-     // aux = aux->lista;
-    }
-  free (aux);
+  aux = (struct Pila *) malloc (sizeof(struct Pila));
+  aux = pila;
+  mostrar_lista (pila->lista);
+  free(pila);
+  while(aux->lista!=NULL){
+    pila->lista= aux->lista;
+    aux->lista = aux->lista->siguiente;
+  }
+  return pila;
 }

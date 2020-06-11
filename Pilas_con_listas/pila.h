@@ -6,13 +6,12 @@
 #include "Lista.h"
 struct Pila
 {
-  int dato;
-  struct Lista *siguiente;
+  struct Lista *lista;
 };
 
-struct Pila *crear (int);
+struct Pila *crear_pila (int);
 struct Pila *insertar (struct Pila *, int);
 struct Pila *eliminar (struct Pila *);
-void mostrar (struct Pila *);
+void mostrar_pila (struct Pila *);
 
 #endif

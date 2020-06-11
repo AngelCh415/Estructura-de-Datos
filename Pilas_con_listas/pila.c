@@ -1,51 +1,50 @@
 #include "pila.h"
+#include "Lista.h"
 struct Pila *
-crear (int dato)
+crear_pila (int dato)
 {
   struct Pila *pila = NULL;
   pila = (struct Pila *) malloc (sizeof (struct Pila));
-  pila->dato = dato;
-  pila->siguiente = NULL;
+  pila->lista= insertar_lista(pila->lista, dato);
   return pila;
 }
-
 struct Pila *
 insertar (struct Pila *pila, int dato)
 {
   struct Pila *nueva = crear (dato);
-  nueva->siguiente = pila->siguiente;
+  nueva->lista = pila->lista;
   return nueva;
 }
 
 struct Pila *
 eliminar (struct Pila *pila)
-{
-  struct Lista *aux = pila->siguiente;
-  free (pila);
-  return aux;
+{ 
+ pila->lista= eliminar_lista(pila->lista);
+  return pila;
 }
 
 void
-mostrar (struct Pila *pila)
+mostrar_pila (struct Pila *pila)
 {
   struct Pila *aux = NULL;
   aux = crear (-123);
-  while (pila != NULL)
+  /*while (pila != NULL)
     {
-      printf ("%d ", pila->dato);
-      aux->dato = pila->dato;
-      aux->siguiente = pila->siguiente;
-      pila = pila->siguiente;
-    }
+      printf ("%d ", pila->lista->dato);
+      aux->lista->dato = pila->lista->dato;
+      aux->lista = pila->lista;
+      pila = pila->lista;
+    }*/
+  mostrar(pila->lista);
   free (pila);
   while (aux != NULL)
     {
-      if (aux->siguiente != NULL)
+      if (aux->lista != NULL)
 	{
-	  pila->dato = aux->dato;
-	  pila->siguiente = aux->siguiente;
+	  pila->lista->dato = aux->lista->dato;
+	  pila->lista = aux->lista;
 	}
-      aux = aux->siguiente;
+      aux = aux->lista;
     }
   free (aux);
 }

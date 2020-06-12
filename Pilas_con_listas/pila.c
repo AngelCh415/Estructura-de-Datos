@@ -11,9 +11,8 @@ crear_pila (int dato)
 struct Pila *
 insertar_pila (struct Pila *pila, int dato)
 {
-  struct Pila *nueva = crear_pila(dato);
-  nueva->lista = pila->lista;
-  return nueva;
+  pila->lista = insertar_lista(pila->lista,dato);
+  return pila;
 }
 
 struct Pila *

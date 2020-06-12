@@ -5,11 +5,11 @@ main (void)
 {
   struct Pila *pila = NULL;
   pila = crear_pila (20);
-  pila = insertar_pila (pila,2);
+  pila = insertar_pila (pila,16);
+  pila = insertar_pila (pila,146);
+  pila = insertar_pila (pila,106);
   pila = mostrar_pila(pila);
-  pila = eliminar (pila);
-  pila = mostrar_pila(pila);
-  pila = eliminar (pila);
+  pila = eliminar(pila);
   pila = mostrar_pila(pila);
   return 0;
 }

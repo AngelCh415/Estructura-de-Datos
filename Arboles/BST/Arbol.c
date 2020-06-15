@@ -32,28 +32,40 @@ insertar_Arbol (struct Arbol *raiz, int dato)
     }
   return raiz;
 }
-void mostrar_1 (struct Arbol *raiz){
-  if(raiz==NULL){
-    return ;
-  }
+
+void
+mostrar_1 (struct Arbol *raiz)
+{
+  if (raiz == NULL)
+    {
+      return;
+    }
   printf ("%d ", raiz->dato);
-  mostrar_1(raiz->izquierda);
-  mostrar_1(raiz->derecha);
+  mostrar_1 (raiz->izquierda);
+  mostrar_1 (raiz->derecha);
 }
-void mostrar_2 (struct Arbol *raiz){
-  if(raiz==NULL){
-    return ;
-  }
-  mostrar_2(raiz->izquierda);
+
+void
+mostrar_2 (struct Arbol *raiz)
+{
+  if (raiz == NULL)
+    {
+      return;
+    }
+  mostrar_2 (raiz->izquierda);
   printf ("%d ", raiz->dato);
-  mostrar_2(raiz->derecha);
+  mostrar_2 (raiz->derecha);
 
 }
-void mostrar_3 (struct Arbol *raiz){
-  if(raiz==NULL){
-    return ;
-  }
-  mostrar_3(raiz->derecha);
-  mostrar_3(raiz->izquierda);
+
+void
+mostrar_3 (struct Arbol *raiz)
+{
+  if (raiz == NULL)
+    {
+      return;
+    }
+  mostrar_3 (raiz->derecha);
+  mostrar_3 (raiz->izquierda);
   printf ("%d ", raiz->dato);
 }

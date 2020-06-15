@@ -13,5 +13,8 @@ struct Arbol
 };
 struct Arbol *crear_Arbol (int);
 struct Arbol *insertar_Arbol (struct Arbol *, int);
+void mostrar_1 (struct Arbol *);
+void mostrar_2 (struct Arbol *);
+void mostrar_3 (struct Arbol *);
 
 #endif

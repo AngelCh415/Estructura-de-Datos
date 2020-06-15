@@ -66,6 +66,6 @@ mostrar_3 (struct Arbol *raiz)
       return;
     }
   mostrar_3 (raiz->derecha);
-  mostrar_3 (raiz->izquierda);
   printf ("%d ", raiz->dato);
+  mostrar_3 (raiz->izquierda);
 }

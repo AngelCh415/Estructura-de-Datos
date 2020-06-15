@@ -13,5 +13,6 @@ struct Pila *crear_pila (int);
 struct Pila *insertar_pila (struct Pila *, int);
 struct Pila *eliminar (struct Pila *);
 struct Pila *mostrar_pila (struct Pila *);
+int top (struct Pila *);
 
 #endif

@@ -5,10 +5,10 @@ crear (int dato)
 {
   struct Lista *nueva = NULL;
   nueva = (struct Lista *) malloc (sizeof (struct Lista));
-  /*if (nueva == NULL)
+  if (nueva == NULL)
     {
       return NULL;
-    }*/
+    }
   nueva->dato = dato;
   nueva->siguiente = NULL;
   return nueva;

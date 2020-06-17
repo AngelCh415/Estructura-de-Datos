@@ -3,30 +3,27 @@
 int
 main ()
 {
-  int i = 0;
-  int total = 0;
   int dato = 0;
   struct Lista *lista;
   lista = NULL;
-  printf ("Ingrese la cantidad de datos: ");
-  scanf ("%d", &total);
-  scanf ("%d", &dato);
-  lista = crear (dato);
-  for (i = 1; i < total; i++)
-    {
-      scanf ("%d", &dato);
-      lista = insertar (lista, dato);
-    }
-  printf ("Los datos mostrados son: ");
+  lista = crear (5);
+  lista = insertar (lista, 48);
+  lista = insertar (lista, -14);
+  lista = insertar (lista, 14);
+  lista = insertar (lista, 15);
+  lista = insertar (lista, 100);
   mostrar (lista);
   printf ("\n");
-  printf ("Eliminación de la mitad de los datos:\n");
-  total = total / 2;
-  for (i = 0; i < total; i++)
-    {
-      lista = eliminar (lista);
-    }
-  printf ("Los datos después de la eliminación: \n");
+  printf ("Buscando el dato\n");
+  scanf ("%d", &dato);
+  buscar (lista, dato);
+  printf ("Eliminando de la lista: \n");
+  lista = eliminar (lista);
+  mostrar (lista);
+  printf ("\n");
+  printf ("Buscando el dato\n");
+  scanf ("%d", &dato);
+  buscar (lista, dato);
   mostrar (lista);
   return 0;
 }

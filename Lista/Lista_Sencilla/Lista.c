@@ -41,3 +41,18 @@ mostrar (struct Lista *lista)
       lista = lista->siguiente;
     }
 }
+
+void
+buscar (struct Lista *lista, int dato)
+{
+  while (lista != NULL)
+    {
+      if (lista->dato == dato)
+	{
+	  printf ("Dato encontrado\n");
+	  return;
+	}
+      lista = lista->siguiente;
+    }
+  printf ("No existe el dato\n");
+}

@@ -13,11 +13,18 @@ main (void)
   lista = insertar_en_doble (lista, 5);
   mostrar (lista);
   printf ("\n");
-  mostrar_re (lista, aux);
+  mostrar_re (aux);
+  lista = eliminar_en_doble (lista);
+  //5->2->9.>12->13
+  printf ("\n");
+  //2->9.....
+  mostrar (lista);
+  printf ("\n");
+  mostrar_re (aux);
   lista = eliminar_en_doble (lista);
   printf ("\n");
   mostrar (lista);
   printf ("\n");
-  mostrar_re (lista, aux);
+  mostrar_re (aux);
   return 0;
 }

@@ -37,15 +37,10 @@ mostrar (struct ListaD *lista)
 }
 
 void
-mostrar_re (struct ListaD *lista, struct ListaD *aux)
+mostrar_re (struct ListaD *lista)
 {
-  lista = aux;
   while (lista != NULL)
     {
-      if (lista->anterior == NULL)
-	{
-	  return;
-	}
       printf ("%d ", lista->dato);
       lista = lista->anterior;
     }
@@ -59,7 +54,11 @@ eliminar_en_doble (struct ListaD *lista)
       return NULL;
     }
   struct ListaD *aux = lista->siguiente;
+
+  lista->dato = 0;
+  lista->siguiente = NULL;
+  lista->anterior = NULL;
   free (lista);
-  lista = aux;
-  return lista;
+  aux->anterior = NULL;
+  return aux;
 }

@@ -17,3 +17,18 @@ mostrar_eliminar (int *pila, int *tope)
       printf ("%d\n", x);
     }
 }
+
+void
+buscar (int *pila, int dato, int tope)
+{
+  while (tope > -1)
+    {
+      if (pila[tope] == dato)
+	{
+	  printf ("Se encontro el dato\n");
+	  return;
+	}
+      tope--;
+    }
+  printf ("No se encontro el dato \n");
+}

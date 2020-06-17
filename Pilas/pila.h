@@ -7,5 +7,5 @@
 int pila[100];
 void insertar (int *, int, int *);
 void mostrar_eliminar (int *, int *);
-
+void buscar (int *, int, int);
 #endif

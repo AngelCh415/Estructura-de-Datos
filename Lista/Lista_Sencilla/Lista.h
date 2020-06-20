@@ -11,9 +11,11 @@ struct Lista
 };
 
 struct Lista *crear (int);
-struct Lista *insertar (struct Lista *, int);
-struct Lista *eliminar (struct Lista *);
-void mostrar (struct Lista *);
-void buscar (struct Lista *, int);
+struct Lista *insertar_lista (struct Lista *, int);
+struct Lista *eliminar_lista_inicio (struct Lista *);
+struct Lista *eliminar_lista_dato (struct Lista *, int);
+struct Lista *eliminar_lista_final (struct Lista *);
+void mostrar_lista (struct Lista *);
+int buscar_lista (struct Lista *, int);
 
 #endif

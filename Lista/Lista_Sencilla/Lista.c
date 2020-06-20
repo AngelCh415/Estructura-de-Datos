@@ -15,7 +15,7 @@ crear (int dato)
 }
 
 struct Lista *
-insertar (struct Lista *lista, int dato)
+insertar_lista (struct Lista *lista, int dato)
 {
   struct Lista *nueva_lista = crear (dato);
   nueva_lista->siguiente = lista;
@@ -24,7 +24,7 @@ insertar (struct Lista *lista, int dato)
 }
 
 struct Lista *
-eliminar (struct Lista *lista)
+eliminar_lista_inicio (struct Lista *lista)
 {
   struct Lista *aux = lista->siguiente;
   free (lista);
@@ -32,8 +32,43 @@ eliminar (struct Lista *lista)
   return lista;
 }
 
+struct Lista *
+eliminar_lista_dato (struct Lista *lista, int dato)
+{
+  struct Lista *aux = NULL;
+  struct Lista *anterior = NULL;
+  if (lista == NULL)
+    {
+      return NULL;
+    }
+  aux = lista;
+  while (aux != NULL && aux->dato != dato)
+    {
+      anterior = aux;
+      aux = aux->siguiente;
+    }
+  if (aux != NULL)
+    {
+      anterior->siguiente = aux->siguiente;
+      free (aux);
+    }
+  return lista;
+}
+
+struct Lista *
+eliminar_lista_final (struct Lista *lista)
+{
+  struct Lista *aux = lista;
+  while (aux->siguiente != NULL)
+    {
+      aux = aux->siguiente;
+    }
+  lista = eliminar_lista_dato (lista, aux->dato);
+  return lista;
+}
+
 void
-mostrar (struct Lista *lista)
+mostrar_lista (struct Lista *lista)
 {
   while (lista != NULL)
     {
@@ -42,17 +77,16 @@ mostrar (struct Lista *lista)
     }
 }
 
-void
-buscar (struct Lista *lista, int dato)
+int
+buscar_lista (struct Lista *lista, int dato)
 {
   while (lista != NULL)
     {
       if (lista->dato == dato)
 	{
-	  printf ("Dato encontrado\n");
-	  return;
+	  return 1;
 	}
       lista = lista->siguiente;
     }
-  printf ("No existe el dato\n");
+  return 0;
 }

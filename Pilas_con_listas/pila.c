@@ -5,6 +5,10 @@ crear_pila (int dato)
 {
   struct Pila *pila = NULL;
   pila = (struct Pila *) malloc (sizeof (struct Pila));
+  if (pila == NULL)
+    {
+      return NULL;
+    }
   pila->lista = insertar_lista (pila->lista, dato);
   return pila;
 }
@@ -12,8 +16,14 @@ crear_pila (int dato)
 struct Pila *
 insertar_pila (struct Pila *pila, int dato)
 {
-
-  pila->lista = insertar_lista (pila->lista, dato);
+  if (pila == NULL)
+    {
+      pila = crear_pila (dato);
+    }
+  else
+    {
+      pila->lista = insertar_lista (pila->lista, dato);
+    }
   return pila;
 }
 
@@ -47,7 +57,10 @@ mostrar_pila (struct Pila *pila)
 {
   int dato_mostrado = 0;
   struct Pila *aux = NULL;
-  aux = (struct Pila *) malloc (sizeof (struct Pila));
+  if (pila == NULL)
+    {
+      return;
+    }
   while (estaVacia (pila) == 0)
     {
       dato_mostrado = top (pila);

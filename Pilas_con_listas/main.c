@@ -5,7 +5,7 @@ main (void)
 {
   struct Pila *pila = NULL;
   printf ("Insertando en la pila en este ordem 20,16,146,106\n");
-  pila = crear_pila (20);
+  pila = insertar_pila (pila, 20);
   pila = insertar_pila (pila, 16);
   pila = insertar_pila (pila, 146);
   pila = insertar_pila (pila, 106);

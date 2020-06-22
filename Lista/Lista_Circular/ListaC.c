@@ -46,56 +46,109 @@ insertar_circular (struct ListaC *lista, int dato)
 void
 mostrar (struct ListaC *lista)
 {
+  struct ListaC *inicio = NULL;
   if (lista == NULL)
     {
       printf ("Lista vacia\n");
       return;
     }
-  struct ListaC *inicio = lista;
+  inicio = lista;
   do
     {
       printf ("%d->", inicio->dato);
       inicio = inicio->siguiente;
     }
   while (inicio != lista);
+  printf ("%d", inicio->dato);
 }
 
 struct ListaC *
-eliminar (struct ListaC *lista)
+eliminar_dato (struct ListaC *lista, int dato)
 {
+  struct ListaC *inicio = NULL;
+  struct ListaC *final = NULL;
+  struct ListaC *anterior = NULL;
   if (lista == NULL)
     {
       return NULL;
     }
-  struct ListaC *aux = lista->siguiente;
-  lista->siguiente = aux->siguiente;
+  inicio = lista;
+  final = buscar_fin (lista);
+  while (inicio != final)
+    {
+      if (inicio->dato == dato)
+	{
+	  anterior->siguiente = inicio->siguiente;
+	  free (inicio);
+	  return lista;
+	}
+      anterior = inicio;
+      inicio = inicio->siguiente;
+    }
+  return lista;
+}
+
+struct ListaC *
+eliminar_final (struct ListaC *lista)
+{
+  struct ListaC *aux = NULL;
+  struct ListaC *anterior = NULL;
+  struct ListaC *bandera = NULL;
+  if (lista == NULL)
+    {
+      return NULL;
+    }
+  aux = lista;
+  bandera = buscar_fin (lista);
+  while (aux != bandera)
+    {
+      anterior = aux;
+      aux = aux->siguiente;
+    }
+  anterior->siguiente = aux->siguiente;
   free (aux);
   return lista;
 }
 
-void
-buscar (struct ListaC *lista, int dato)
+struct ListaC *
+eliminar_inicio (struct ListaC *lista)
 {
+  struct ListaC *aux = NULL;
+  struct ListaC *ultimo = NULL;
   if (lista == NULL)
     {
-      printf ("Lista vacia\n");
-      return;
+      return NULL;
     }
-  struct ListaC *inicio = lista;
-  struct ListaC *final = buscar_fin (lista);
+  aux = lista;
+  ultimo = buscar_fin (lista);
+  lista = lista->siguiente;
+  ultimo->siguiente = lista;
+  free (aux);
+  return lista;
+}
+
+int
+buscar (struct ListaC *lista, int dato)
+{
+  struct ListaC *inicio = NULL;
+  struct ListaC *final = NULL;
+  if (lista == NULL)
+    {
+      return 0;
+    }
+  inicio = lista;
+  final = buscar_fin (lista);
   if (dato == final->dato)
     {
-      printf ("Dato encontrado \n");
-      return;
+      return 1;
     }
   while (inicio != final)
     {
       if (inicio->dato == dato)
 	{
-	  printf ("Dato encontrado\n");
-	  return;
+	  return 1;
 	}
       inicio = inicio->siguiente;
     }
-  printf ("No existe dato\n");
+  return 0;
 }

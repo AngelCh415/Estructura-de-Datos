@@ -12,7 +12,9 @@ struct ListaC
 struct ListaC *crear_circular (int);
 struct ListaC *insertar_circular (struct ListaC *, int);
 void mostrar (struct ListaC *);
-struct ListaC *eliminar (struct ListaC *);
-void buscar (struct ListaC *, int);
+struct ListaC *eliminar_dato (struct ListaC *, int);
+struct ListaC *eliminar_final (struct ListaC *);
+struct ListaC *eliminar_inicio (struct ListaC *);
+int buscar (struct ListaC *, int);
 struct ListaC *buscar_fin (struct ListaC *);
 #endif

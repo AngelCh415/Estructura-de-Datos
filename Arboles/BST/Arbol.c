@@ -15,6 +15,31 @@ crear_Arbol (int dato)
   return nuevo;
 }
 
+int
+buscar_arbol (struct Arbol *raiz, int dato)
+{
+  if (raiz == NULL)
+    {
+      return 0;
+    }
+  while (raiz != NULL)
+    {
+      if (raiz->dato == dato)
+	{
+	  return 1;
+	}
+      if (dato < raiz->dato)
+	{
+	  raiz = raiz->izquierda;
+	}
+      else
+	{
+	  raiz = raiz->derecha;
+	}
+    }
+  return 0;
+}
+
 struct Arbol *
 insertar_Arbol (struct Arbol *raiz, int dato)
 {
@@ -68,4 +93,95 @@ mostrar_3 (struct Arbol *raiz)
   mostrar_3 (raiz->derecha);
   printf ("%d ", raiz->dato);
   mostrar_3 (raiz->izquierda);
+}
+
+struct Arbol *
+eliminar_Arbol (struct Arbol *raiz, int dato)
+{
+  struct Arbol *nodo_padre = NULL;
+  struct Arbol *nodo_eliminar = NULL;
+  struct Arbol *nodo_bajo = NULL;
+  struct Arbol *padre_nodo_bajo = NULL;
+  if (raiz == NULL)
+    {
+      return NULL;
+    }
+  nodo_eliminar = raiz;
+  while (nodo_eliminar->dato != dato)
+    {
+      nodo_padre = nodo_eliminar;
+      if (dato < nodo_eliminar->dato)
+	{
+	  nodo_eliminar = nodo_eliminar->izquierda;
+	}
+      else
+	{
+	  nodo_eliminar = nodo_eliminar->derecha;
+	}
+      if (nodo_eliminar == NULL)
+	{
+	  break;
+	}
+    }
+  if (nodo_eliminar == NULL)
+    {
+      return raiz;
+    }
+  if (nodo_eliminar->derecha == NULL && nodo_eliminar->izquierda == NULL)
+    {
+      if (nodo_padre->dato > nodo_eliminar->dato)
+	{
+	  nodo_padre->izquierda = NULL;
+	}
+      else
+	{
+	  nodo_padre->derecha = NULL;
+	}
+      free (nodo_eliminar);
+      return raiz;
+    }
+  else if (nodo_eliminar->derecha == NULL)
+    {
+      if (nodo_padre->dato > nodo_eliminar->dato)
+	{
+	  nodo_padre->izquierda = nodo_eliminar->izquierda;
+	}
+      else
+	{
+	  nodo_padre->derecha = nodo_eliminar->izquierda;
+	}
+      free (nodo_eliminar);
+      return raiz;
+    }
+  else if (nodo_eliminar->izquierda == NULL)
+    {
+      if (nodo_padre->dato > nodo_eliminar->dato)
+	{
+	  nodo_padre->izquierda = nodo_eliminar->derecha;
+	}
+      else
+	{
+	  nodo_padre->derecha = nodo_eliminar->derecha;
+	}
+      free (nodo_eliminar);
+      return raiz;
+    }
+  nodo_bajo = nodo_eliminar->derecha;
+  padre_nodo_bajo = nodo_eliminar;
+  while (nodo_bajo->izquierda != NULL)
+    {
+      padre_nodo_bajo = nodo_bajo;
+      nodo_bajo = nodo_bajo->izquierda;
+    }
+  nodo_eliminar->dato = nodo_bajo->dato;
+  if (padre_nodo_bajo->derecha == nodo_bajo)
+    {
+      padre_nodo_bajo->derecha = nodo_bajo->derecha;
+    }
+  else
+    {
+      padre_nodo_bajo->izquierda = nodo_bajo->derecha;
+    }
+  free (nodo_bajo);
+  return raiz;
 }

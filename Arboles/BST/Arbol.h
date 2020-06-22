@@ -16,5 +16,7 @@ struct Arbol *insertar_Arbol (struct Arbol *, int);
 void mostrar_1 (struct Arbol *);
 void mostrar_2 (struct Arbol *);
 void mostrar_3 (struct Arbol *);
+struct Arbol *eliminar_Arbol (struct Arbol *, int);
+int buscar_arbol (struct Arbol *, int);
 
 #endif

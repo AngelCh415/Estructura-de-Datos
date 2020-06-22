@@ -1,3 +1,4 @@
 # Estructura-de-Datos
 
-Angel Uriel Chávez Morones
+autor: Angel Uriel Chávez Morones
+2020630067

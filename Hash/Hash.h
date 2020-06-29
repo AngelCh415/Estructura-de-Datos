@@ -16,6 +16,6 @@ int hasheo (int);
 void mostrar_tabla (struct Tabla *);
 struct Tabla *insertar_tabla (struct Tabla *, int);
 struct Tabla *eliminacion_tabla (struct Tabla *, int);
-int buscar (struct Tabla *, int);
+int buscar_tabla (struct Tabla *, int);
 
 #endif
